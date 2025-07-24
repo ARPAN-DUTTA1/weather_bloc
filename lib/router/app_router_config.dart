@@ -9,7 +9,7 @@ class AppRouter {
     routes: [
       GoRoute(
         // path: '/',
-        path: 'splash_screen',
+        path: '/splash_screen',
         name: AppRouterConstants.splashScreen,
         builder: (context, state) {
           return const SplashScreen();
