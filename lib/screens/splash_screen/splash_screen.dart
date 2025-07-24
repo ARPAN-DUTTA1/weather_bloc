@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_bloc/router/app_router_constants.dart';
 
@@ -7,33 +8,27 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 6), () {
       context.goNamed(AppRouterConstants.weatherScreen);
     });
 
     return Scaffold(
       body: Center(
-        child: TweenAnimationBuilder(
-          curve: Curves.bounceOut,
-          duration: const Duration(seconds: 2),
-          tween: Tween<double>(begin: 0.0, end: 1.0),
-          builder: (context, value, child) {
-            return Opacity(
-              opacity: value,
-              child: Transform.scale(scale: value, child: child),
-            );
-          },
-          child: SizedBox(
-            height: 200.0,
-            width: 200.0,
-            child: Image.asset(
-              'asset/img/logo.png',
-              fit: BoxFit.cover,
-              isAntiAlias: true,
-              colorBlendMode: BlendMode.darken,
-            ),
-          ),
-        ),
+        child:
+            SizedBox(
+                  height: 200.0,
+                  width: 200.0,
+                  child: Image.asset(
+                    'asset/img/logo.png',
+                    fit: BoxFit.cover,
+                    isAntiAlias: true,
+                    colorBlendMode: BlendMode.darken,
+                  ),
+                )
+                .animate()
+                .fadeIn(duration: 2.seconds)
+                .then(delay: 2.seconds)
+                .fadeOut(duration: 2.seconds),
       ),
     );
   }
