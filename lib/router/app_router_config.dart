@@ -5,16 +5,19 @@ import 'package:weather_bloc/screens/weather/weather_screen.dart';
 
 class AppRouter {
   GoRouter goRouter = GoRouter(
+    initialLocation: '/',
     routes: [
       GoRoute(
-        path: '/',
+        // path: '/',
+        path: 'splash_screen',
         name: AppRouterConstants.splashScreen,
         builder: (context, state) {
           return const SplashScreen();
         },
       ),
       GoRoute(
-        path: '/weather_screen',
+        // path: '/weather_screen',
+        path: '/',
         name: AppRouterConstants.weatherScreen,
         builder: (context, state) {
           return const WeatherScreen();
