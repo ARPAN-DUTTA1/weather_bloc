@@ -14,7 +14,7 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: '/WeatherScreen',
+        path: '/weather_screen',
         name: AppRouterConstants.weatherScreen,
         builder: (context, state) {
           return const WeatherScreen();

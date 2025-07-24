@@ -5,6 +5,6 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(body: const Center(child: Text('Weather Screen')));
   }
 }
