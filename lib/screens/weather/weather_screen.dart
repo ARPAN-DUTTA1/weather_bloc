@@ -10,7 +10,6 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final color = Theme.of(context).colorScheme;
     final text = Theme.of(context).textTheme;
 
