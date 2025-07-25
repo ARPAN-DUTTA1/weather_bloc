@@ -57,11 +57,11 @@ class MyApp extends StatelessWidget {
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displayLarge: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 30.0,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displayMedium: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displaySmall: TextStyle(
@@ -100,11 +100,11 @@ class MyApp extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
                 displayLarge: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 30.0,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displayMedium: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displaySmall: TextStyle(

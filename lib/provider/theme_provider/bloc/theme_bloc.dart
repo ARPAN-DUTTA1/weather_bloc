@@ -8,10 +8,10 @@ part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(ThemeInitial()) {
-    on<ToggleThemeEvent>(toggleThemeEvent);
+    on<ToggleThemeEvent>(_toggleThemeEvent);
   }
 
-  FutureOr<void> toggleThemeEvent(
+  FutureOr<void> _toggleThemeEvent(
     ToggleThemeEvent event,
     Emitter<ThemeState> emit,
   ) {

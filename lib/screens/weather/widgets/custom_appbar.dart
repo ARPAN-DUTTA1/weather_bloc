@@ -15,7 +15,9 @@ class CustomAppbar extends StatelessWidget {
       pinned: false,
       snap: true,
       stretch: true,
-      title: Text(title, style: Theme.of(context).textTheme.displayLarge),
+      // expandedHeight: 200,
+      // forceMaterialTransparency: true,
+      title: Text(title, style: Theme.of(context).textTheme.displayMedium),
       centerTitle: false,
       actions: [
         BlocBuilder<ThemeBloc, ThemeState>(

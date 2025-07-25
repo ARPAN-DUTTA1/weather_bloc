@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_bloc/screens/weather/widgets/custom_appbar.dart';
+import 'package:weather_bloc/screens/weather/widgets/main_weather_card_widget.dart';
+import 'package:weather_bloc/screens/weather/widgets/side_heading_widget.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -12,6 +15,7 @@ class WeatherScreen extends StatelessWidget {
 
     return Scaffold(
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           CustomAppbar(
             title: 'Weather App',
@@ -19,7 +23,18 @@ class WeatherScreen extends StatelessWidget {
               // your refresh logic
             },
           ),
-          // SliverToBoxAdapter(child: ),
+          MainWeatherCardWidget(
+            tempText: '12.0° C',
+            color: color.primary,
+            height: size.height * 0.40,
+            width: size.width,
+            icon: FontAwesomeIcons.cloudShowersWater,
+            textStyle: text.displayLarge!,
+          ),
+
+          SideHeadingWidget(sideTitle: 'Hourly Forecast'),
+
+          
         ],
       ),
     );
