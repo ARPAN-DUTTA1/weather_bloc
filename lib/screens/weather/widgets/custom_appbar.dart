@@ -1,19 +1,22 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:weather_bloc/provider/theme_provider/bloc/theme_bloc.dart';
 
-class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppbar extends StatelessWidget {
   final String title;
   final VoidCallback? onRefresh;
-  const CustomAppbar({Key? key, required this.title, this.onRefresh})
-    : super(key: key);
+
+  const CustomAppbar({super.key, required this.title, this.onRefresh});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(title),
+    return SliverAppBar(
+      floating: true,
+      pinned: false,
+      snap: true,
+      stretch: true,
+      title: Text(title, style: Theme.of(context).textTheme.displayLarge),
+      centerTitle: false,
       actions: [
         BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
@@ -33,7 +36,4 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -34,11 +34,10 @@ class MyApp extends StatelessWidget {
                 backgroundColor: Color.fromARGB(255, 139, 133, 193),
                 centerTitle: false,
                 foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                titleTextStyle: TextStyle(fontSize: 18.0),
               ),
               scaffoldBackgroundColor: const Color.fromARGB(255, 32, 30, 31),
               colorScheme: ColorScheme.fromSeed(
-                seedColor: Color.fromARGB(255, 139, 133, 193),
+                seedColor: const Color.fromARGB(255, 139, 133, 193),
                 primary: const Color.fromARGB(255, 139, 133, 193),
                 secondary: const Color.fromARGB(255, 212, 205, 244),
                 brightness: Brightness.dark,
@@ -47,15 +46,15 @@ class MyApp extends StatelessWidget {
               textTheme: const TextTheme(
                 bodyLarge: TextStyle(
                   fontSize: 20.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 bodyMedium: TextStyle(
                   fontSize: 16.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 bodySmall: TextStyle(
                   fontSize: 14.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 displayLarge: TextStyle(
                   fontSize: 20.0,

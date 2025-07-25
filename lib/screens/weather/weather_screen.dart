@@ -6,8 +6,22 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final color = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+
     return Scaffold(
-      appBar: CustomAppbar(title: 'Weather App', onRefresh: () {}),
+      body: CustomScrollView(
+        slivers: [
+          CustomAppbar(
+            title: 'Weather App',
+            onRefresh: () {
+              // your refresh logic
+            },
+          ),
+          // SliverToBoxAdapter(child: ),
+        ],
+      ),
     );
   }
 }

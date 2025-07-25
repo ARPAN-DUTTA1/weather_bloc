@@ -3,6 +3,7 @@ import 'dart:convert';
 
 class WeatherDataModel {
   final String cityName;
+  final String sky;
   final double temp;
   final double windSpeed;
   final int humidity;
@@ -11,6 +12,7 @@ class WeatherDataModel {
   final DateTime time;
   WeatherDataModel({
     required this.cityName,
+    required this.sky,
     required this.temp,
     required this.windSpeed,
     required this.humidity,
@@ -21,6 +23,7 @@ class WeatherDataModel {
 
   WeatherDataModel copyWith({
     String? cityName,
+    String? sky,
     double? temp,
     double? windSpeed,
     int? humidity,
@@ -30,6 +33,7 @@ class WeatherDataModel {
   }) {
     return WeatherDataModel(
       cityName: cityName ?? this.cityName,
+      sky: sky ?? this.sky,
       temp: temp ?? this.temp,
       windSpeed: windSpeed ?? this.windSpeed,
       humidity: humidity ?? this.humidity,
@@ -42,6 +46,7 @@ class WeatherDataModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'cityName': cityName,
+      'sky': sky,
       'temp': temp,
       'windSpeed': windSpeed,
       'humidity': humidity,
@@ -54,6 +59,7 @@ class WeatherDataModel {
   factory WeatherDataModel.fromMap(Map<String, dynamic> map) {
     return WeatherDataModel(
       cityName: map['cityName'] as String,
+      sky: map['sky'] as String,
       temp: map['temp'] as double,
       windSpeed: map['windSpeed'] as double,
       humidity: map['humidity'] as int,
@@ -70,30 +76,33 @@ class WeatherDataModel {
 
   @override
   String toString() {
-    return 'WeatherDataModel(cityName: $cityName, temp: $temp, windSpeed: $windSpeed, humidity: $humidity, pressure: $pressure, date: $date, time: $time)';
+    return 'WeatherDataModel(cityName: $cityName, sky: $sky, temp: $temp, windSpeed: $windSpeed, humidity: $humidity, pressure: $pressure, date: $date, time: $time)';
   }
 
   @override
   bool operator ==(covariant WeatherDataModel other) {
     if (identical(this, other)) return true;
-
-    return other.cityName == cityName &&
-        other.temp == temp &&
-        other.windSpeed == windSpeed &&
-        other.humidity == humidity &&
-        other.pressure == pressure &&
-        other.date == date &&
-        other.time == time;
+  
+    return 
+      other.cityName == cityName &&
+      other.sky == sky &&
+      other.temp == temp &&
+      other.windSpeed == windSpeed &&
+      other.humidity == humidity &&
+      other.pressure == pressure &&
+      other.date == date &&
+      other.time == time;
   }
 
   @override
   int get hashCode {
     return cityName.hashCode ^
-        temp.hashCode ^
-        windSpeed.hashCode ^
-        humidity.hashCode ^
-        pressure.hashCode ^
-        date.hashCode ^
-        time.hashCode;
+      sky.hashCode ^
+      temp.hashCode ^
+      windSpeed.hashCode ^
+      humidity.hashCode ^
+      pressure.hashCode ^
+      date.hashCode ^
+      time.hashCode;
   }
 }
