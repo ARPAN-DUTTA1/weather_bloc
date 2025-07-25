@@ -17,12 +17,12 @@ class CustomAppbar extends StatelessWidget {
       stretch: true,
       // expandedHeight: 200,
       // forceMaterialTransparency: true,
-      title: Text(title, style: Theme.of(context).textTheme.displayMedium),
-      centerTitle: false,
-      actions: [
-        BlocBuilder<ThemeBloc, ThemeState>(
-          builder: (context, state) {
-            return IconButton(
+      leadingWidth: 60,
+      leading: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 12.0),
+            child: IconButton(
               onPressed: () {
                 context.read<ThemeBloc>().add(ToggleThemeEvent());
               },
@@ -31,9 +31,19 @@ class CustomAppbar extends StatelessWidget {
                     ? Icons.dark_mode
                     : Icons.sunny,
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
+      ),
+      title: Text(
+        title,
+        style: Theme.of(
+          context,
+        ).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w600),
+      ),
+      centerTitle: false,
+      actions: [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         IconButton(onPressed: onRefresh, icon: const Icon(Icons.refresh)),
       ],
     );
