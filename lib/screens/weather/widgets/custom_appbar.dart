@@ -1,12 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:weather_bloc/provider/theme_provider/bloc/theme_bloc.dart';
 
 class CustomAppbar extends StatelessWidget {
   final String title;
   final VoidCallback? onRefresh;
+  final VoidCallback? onSearch;
 
-  const CustomAppbar({super.key, required this.title, this.onRefresh});
+  const CustomAppbar({
+    super.key,
+    required this.title,
+    this.onRefresh,
+    this.onSearch,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class CustomAppbar extends StatelessWidget {
       ),
       centerTitle: false,
       actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        IconButton(onPressed: onSearch, icon: const Icon(Icons.search)),
         IconButton(onPressed: onRefresh, icon: const Icon(Icons.refresh)),
       ],
     );

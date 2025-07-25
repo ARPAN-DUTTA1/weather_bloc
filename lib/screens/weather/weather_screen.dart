@@ -19,6 +19,9 @@ class WeatherScreen extends StatelessWidget {
         slivers: [
           CustomAppbar(
             title: 'Weather App',
+            onSearch: () {
+              // your refresh logic
+            },
             onRefresh: () {
               // your refresh logic
             },
@@ -33,8 +36,6 @@ class WeatherScreen extends StatelessWidget {
           ),
 
           SideHeadingWidget(sideTitle: 'Hourly Forecast'),
-
-          
         ],
       ),
     );
