@@ -71,8 +71,8 @@ class WeatherDataModel {
 
   String toJson() => json.encode(toMap());
 
-  factory WeatherDataModel.fromJson(String source) =>
-      WeatherDataModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory WeatherDataModel.fromJson(Map<String, dynamic> json) =>
+      WeatherDataModel.fromMap(json);
 
   @override
   String toString() {
@@ -82,27 +82,26 @@ class WeatherDataModel {
   @override
   bool operator ==(covariant WeatherDataModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.cityName == cityName &&
-      other.sky == sky &&
-      other.temp == temp &&
-      other.windSpeed == windSpeed &&
-      other.humidity == humidity &&
-      other.pressure == pressure &&
-      other.date == date &&
-      other.time == time;
+
+    return other.cityName == cityName &&
+        other.sky == sky &&
+        other.temp == temp &&
+        other.windSpeed == windSpeed &&
+        other.humidity == humidity &&
+        other.pressure == pressure &&
+        other.date == date &&
+        other.time == time;
   }
 
   @override
   int get hashCode {
     return cityName.hashCode ^
-      sky.hashCode ^
-      temp.hashCode ^
-      windSpeed.hashCode ^
-      humidity.hashCode ^
-      pressure.hashCode ^
-      date.hashCode ^
-      time.hashCode;
+        sky.hashCode ^
+        temp.hashCode ^
+        windSpeed.hashCode ^
+        humidity.hashCode ^
+        pressure.hashCode ^
+        date.hashCode ^
+        time.hashCode;
   }
 }
