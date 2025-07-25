@@ -30,7 +30,7 @@ class WeatherScreen extends StatelessWidget {
           MainWeatherCardWidget(
             tempText: '12.0° C',
             color: color.primary,
-            height: size.height * 0.40,
+            height: size.height * 0.6,
             width: size.width,
             icon: FontAwesomeIcons.cloudShowersWater,
             textStyle: text.displayLarge!,
@@ -44,7 +44,7 @@ class WeatherScreen extends StatelessWidget {
               child: ListView.builder(
                 cacheExtent: MediaQuery.of(context).size.width * 1.5,
                 scrollDirection: Axis.horizontal,
-                itemCount: 220,
+                itemCount: 10,
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 itemBuilder: (context, index) {
@@ -53,7 +53,7 @@ class WeatherScreen extends StatelessWidget {
                     child: WeatherForecastCard(
                       date: '25/07/2025',
                       icon: FontAwesomeIcons.cloud,
-                      time: '09:45 AM',
+                      temperature: '32.0° C',
                       textStyle: Theme.of(context).textTheme.bodySmall!,
                       borderColor: Theme.of(context).colorScheme.primary,
                     ),
@@ -62,6 +62,8 @@ class WeatherScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          SideHeadingWidget(sideTitle: 'Additional Information'),
         ],
       ),
     );

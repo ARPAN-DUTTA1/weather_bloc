@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class WeatherForecastCard extends StatelessWidget {
   final String date;
   final IconData icon;
-  final String time;
+  final String temperature;
   final TextStyle? textStyle;
   final Color borderColor;
 
@@ -11,7 +11,7 @@ class WeatherForecastCard extends StatelessWidget {
     super.key,
     required this.date,
     required this.icon,
-    required this.time,
+    required this.temperature,
     required this.textStyle,
     required this.borderColor,
   });
@@ -36,12 +36,15 @@ class WeatherForecastCard extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Icon(icon, size: 28.0),
-          Text(
-            time,
-            style: textStyle,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            textAlign: TextAlign.center,
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Text(
+              temperature,
+              style: textStyle,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),
