@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_bloc/screens/weather/widgets/custom_appbar.dart';
 import 'package:weather_bloc/screens/weather/widgets/main_weather_card_widget.dart';
 import 'package:weather_bloc/screens/weather/widgets/side_heading_widget.dart';
+import 'package:weather_bloc/screens/weather/widgets/weather_forecast_card_widget.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -36,6 +37,31 @@ class WeatherScreen extends StatelessWidget {
           ),
 
           SideHeadingWidget(sideTitle: 'Hourly Forecast'),
+
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 120.0, // control height of cards
+              child: ListView.builder(
+                cacheExtent: MediaQuery.of(context).size.width * 1.5,
+                scrollDirection: Axis.horizontal,
+                itemCount: 220,
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                    child: WeatherForecastCard(
+                      date: '25/07/2025',
+                      icon: FontAwesomeIcons.cloud,
+                      time: '09:45 AM',
+                      textStyle: Theme.of(context).textTheme.bodySmall!,
+                      borderColor: Theme.of(context).colorScheme.primary,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
