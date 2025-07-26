@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<SplashScreenBloc>(create: (context) => SplashScreenBloc()),
         BlocProvider<ThemeBloc>(create: (context) => ThemeBloc()),
-        BlocProvider<WeatherBloc>(create: (context) => WeatherBloc()),
+        BlocProvider<WeatherBloc>(
+          create: (context) => WeatherBloc()..add(WeatherRequested('Asansol')),
+        ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {

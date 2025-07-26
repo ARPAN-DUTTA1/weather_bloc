@@ -1,3 +1,4 @@
+// lib/models/weather_data_model.dart
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
@@ -10,6 +11,7 @@ class WeatherDataModel {
   final int pressure;
   final DateTime date;
   final DateTime time;
+
   WeatherDataModel({
     required this.cityName,
     required this.sky,
@@ -58,14 +60,14 @@ class WeatherDataModel {
 
   factory WeatherDataModel.fromMap(Map<String, dynamic> map) {
     return WeatherDataModel(
-      cityName: map['cityName'] as String,
-      sky: map['sky'] as String,
-      temp: map['temp'] as double,
-      windSpeed: map['windSpeed'] as double,
-      humidity: map['humidity'] as int,
-      pressure: map['pressure'] as int,
-      date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
-      time: DateTime.fromMillisecondsSinceEpoch(map['time'] as int),
+      cityName: map['name'] as String,
+      sky: map['weather'][0]['main'] as String,
+      temp: (map['main']['temp'] as num).toDouble(),
+      windSpeed: (map['wind']['speed'] as num).toDouble(),
+      humidity: map['main']['humidity'] as int,
+      pressure: map['main']['pressure'] as int,
+      date: DateTime.fromMillisecondsSinceEpoch((map['dt'] as int) * 1000),
+      time: DateTime.fromMillisecondsSinceEpoch((map['dt'] as int) * 1000),
     );
   }
 

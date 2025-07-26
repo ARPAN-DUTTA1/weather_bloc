@@ -21,6 +21,7 @@ class WeatherScreen extends StatelessWidget {
         buildWhen: (previous, current) => current is! WeatherActionState,
         listener: (context, state) {},
         builder: (context, state) {
+          print(state);
           if (state is WeatherInitial) {
             return const Center(child: Text("Please search a city"));
           }
