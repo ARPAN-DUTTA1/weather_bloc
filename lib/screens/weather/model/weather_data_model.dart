@@ -59,22 +59,24 @@ class WeatherDataModel {
   }
 
   factory WeatherDataModel.fromMap(Map<String, dynamic> map) {
+    final weatherItem = map['weatherItem'] ?? map; // Handle forecast or current weather
     return WeatherDataModel(
-      cityName: map['name'] as String,
-      sky: map['weather'][0]['main'] as String,
-      temp: (map['main']['temp'] as num).toDouble(),
-      windSpeed: (map['wind']['speed'] as num).toDouble(),
-      humidity: map['main']['humidity'] as int,
-      pressure: map['main']['pressure'] as int,
-      date: DateTime.fromMillisecondsSinceEpoch((map['dt'] as int) * 1000),
-      time: DateTime.fromMillisecondsSinceEpoch((map['dt'] as int) * 1000),
+      cityName: map['city']?['name'] ?? weatherItem['name'] ?? 'Unknown',
+      sky: weatherItem['weather'][0]['main'] as String,
+      temp: (weatherItem['main']['temp'] as num).toDouble(),
+      windSpeed: (weatherItem['wind']['speed'] as num).toDouble(),
+      humidity: weatherItem['main']['humidity'] as int,
+      pressure: weatherItem['main']['pressure'] as int,
+      date: DateTime.parse(weatherItem['dt_txt'] ?? DateTime.fromMillisecondsSinceEpoch((weatherItem['dt'] as int) * 1000).toIso8601String()),
+      time: DateTime.parse(weatherItem['dt_txt'] ?? DateTime.fromMillisecondsSinceEpoch((weatherItem['dt'] as int) * 1000).toIso8601String()),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory WeatherDataModel.fromJson(Map<String, dynamic> json) =>
-      WeatherDataModel.fromMap(json);
+  factory WeatherDataModel.fromJson(Map<String, dynamic> json) {
+    return WeatherDataModel.fromMap(json);
+  }
 
   @override
   String toString() {

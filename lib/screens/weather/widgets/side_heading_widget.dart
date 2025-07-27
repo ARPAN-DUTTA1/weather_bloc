@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class SideHeadingWidget extends StatelessWidget {
   final String sideTitle;
-  const SideHeadingWidget({Key? key, required this.sideTitle})
-    : super(key: key);
+  const SideHeadingWidget({super.key, required this.sideTitle});
 
   @override
   Widget build(BuildContext context) {
