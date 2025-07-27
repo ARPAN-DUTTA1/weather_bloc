@@ -61,6 +61,7 @@ class WeatherScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               slivers: [
                 CustomAppbar(
+                  currentCityName: weather.cityName,
                   showWeatherCard: true,
                   tempText: '${weather.temp.toStringAsFixed(1)} °C',
                   icon: (weather.sky == 'Clouds'
@@ -82,7 +83,10 @@ class WeatherScreen extends StatelessWidget {
                         ),
                         actions: [
                           TextButton(
-                            onPressed: () => Navigator.pop(context),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              cityController.clear();
+                            },
                             child: const Text('Cancel'),
                           ),
                           TextButton(
@@ -92,6 +96,7 @@ class WeatherScreen extends StatelessWidget {
                                   WeatherRequested(cityController.text),
                                 );
                                 Navigator.pop(context);
+                                cityController.clear();
                               }
                             },
                             child: const Text('Search'),

@@ -1,12 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:weather_bloc/provider/theme_provider/bloc/theme_bloc.dart';
 
 class CustomAppbar extends StatelessWidget {
   final String tempText;
   final IconData icon;
   final TextStyle textStyle;
+  final String currentCityName;
   final VoidCallback? onRefresh;
   final VoidCallback? onSearch;
   final bool showWeatherCard;
@@ -16,6 +20,7 @@ class CustomAppbar extends StatelessWidget {
     required this.tempText,
     required this.icon,
     required this.textStyle,
+    required this.currentCityName,
     this.onRefresh,
     this.onSearch,
     this.showWeatherCard = true, // default: true
@@ -103,11 +108,26 @@ class CustomAppbar extends StatelessWidget {
           );
         },
       ),
-      title: Text(
-        "Weather App",
-        style: Theme.of(
-          context,
-        ).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w600),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Weather App",
+            style: Theme.of(
+              context,
+            ).textTheme.displayMedium!.copyWith(fontWeight: FontWeight.w600),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 2.0),
+            child: Text(
+              currentCityName,
+              style: Theme.of(
+                context,
+              ).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
       ),
       centerTitle: false,
       actions: [
