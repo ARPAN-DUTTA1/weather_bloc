@@ -8,16 +8,16 @@ class AppRouter {
     initialLocation: '/',
     routes: [
       GoRoute(
-        // path: '/',
-        path: '/splash_screen',
+        path: '/',
+        // path: '/splash_screen',
         name: AppRouterConstants.splashScreen,
         builder: (context, state) {
           return const SplashScreen();
         },
       ),
       GoRoute(
-        // path: '/weather_screen',
-        path: '/',
+        path: '/weather_screen',
+        // path: '/',
         name: AppRouterConstants.weatherScreen,
         builder: (context, state) {
           return const WeatherScreen();
