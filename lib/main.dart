@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SplashScreenBloc>(create: (context) => SplashScreenBloc()),
-        BlocProvider<ThemeBloc>(create: (context) => ThemeBloc()),
-        BlocProvider<WeatherBloc>(
-          create: (context) => WeatherBloc()..add(WeatherRequested('Asansol')),
-        ),
+        // single SplashBloc instance
+        BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc()),
+        BlocProvider<ThemeBloc>(create: (_) => ThemeBloc()),
+        // don’t fire the request here
+        BlocProvider<WeatherBloc>(create: (_) => WeatherBloc()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
